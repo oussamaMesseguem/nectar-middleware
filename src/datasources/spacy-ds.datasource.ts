@@ -1,10 +1,11 @@
 import {inject, lifeCycleObserver, LifeCycleObserver} from '@loopback/core';
 import {juggler} from '@loopback/repository';
 
+const baseURL = 'http://192.168.99.101:8080/';
 const config = {
   name: 'spacyDS',
   connector: 'rest',
-  baseURL: 'http://192.168.99.101:8080/',
+  baseURL,
   crud: false,
   options: {
     headers: {
@@ -16,7 +17,7 @@ const config = {
     {
       template: {
         method: 'GET',
-        url: 'http://192.168.99.101:8080/models',
+        url: `${baseURL}models`,
       },
       functions: {
         models: [],
@@ -25,7 +26,7 @@ const config = {
     {
       template: {
         method: 'POST',
-        url: 'http://192.168.99.101:8080/sents',
+        url: `${baseURL}sents`,
         body: "{body:object}"
       },
       functions: {
@@ -35,7 +36,7 @@ const config = {
     {
       template: {
         method: 'POST',
-        url: 'http://192.168.99.101:8080/sents_dep',
+        url: `${baseURL}sents_dep`,
         body: "{body:object}"
       },
       functions: {
@@ -45,7 +46,7 @@ const config = {
     {
       template: {
         method: 'POST',
-        url: 'http://192.168.99.101:8080/dep',
+        url: `${baseURL}dep`,
         body: "{body:object}"
       },
       functions: {
@@ -55,7 +56,7 @@ const config = {
     {
       template: {
         method: 'POST',
-        url: 'http://192.168.99.101:8080/ent',
+        url: `${baseURL}ent`,
         body: "{body:object}"
       },
       functions: {
